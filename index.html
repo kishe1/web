@@ -1,0 +1,207 @@
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+
+<title>Insert title here</title>
+</head>
+<body>
+<script LANGUAGE="JavaScript">
+    var atten_sum;
+    var gyul_sum;
+    var jigak_sum;
+    var jotoi_sum;
+    var bongsa_sum;
+    var sungjuk_sum;
+    var total_gyul;
+
+    function total_fun()
+    {
+
+        Attendance();
+        fu_bongsa();
+        sungjuk();
+        document.cal.total_result.value = total_gyul+bongsa_sum+sungjuk_sum+40;
+    }
+
+
+    function Attendance()
+    {
+      
+        var s_atten1=document.cal.atten1.value;
+        var s_atten2=document.cal.atten2.value;
+        var s_atten3=document.cal.atten3.value;
+        atten_sum = parseInt(s_atten1)+parseInt(s_atten2) + parseInt(s_atten3);
+
+        var jigak1=document.cal.jigak1.value;
+        var jigak2=document.cal.jigak2.value;
+        var jigak3=document.cal.jigak3.value;
+        jigak_sum = parseInt(jigak1)+parseInt(jigak2) +parseInt(jigak3);
+
+        var s_gyul1=document.cal.gyul1.value;
+        var s_gyul2=document.cal.gyul2.value;
+        var s_gyul3=document.cal.gyul3.value;
+        gyul_sum = parseInt(s_gyul1)+parseInt(s_gyul2) +parseInt(s_gyul3);
+
+        var jotoi1=document.cal.jotoi2.value;
+        var jotoi2=document.cal.jotoi2.value;
+        var jotoi3=document.cal.jotoi2.value;
+        jotoi_sum = parseInt(jotoi1)+parseInt(jotoi2) +parseInt(jotoi3);
+        var temp = atten_sum + ((jigak_sum+gyul_sum+jotoi_sum)/3)
+        total_gyul = Math.floor(temp)
+        if( total_gyul >= 10)
+          total_gyul = 10;
+        else if(total_gyul == 9)
+          total_gyul = 12;    
+        else if(total_gyul == 8)
+          total_gyul = 14;
+        else if(total_gyul == 7)
+          total_gyul = 16;
+        else if(total_gyul == 6)
+          total_gyul = 18;  
+          else if(total_gyul == 5)
+          total_gyul = 20;   
+          else if(total_gyul == 4)
+          total_gyul = 22;   
+          else if(total_gyul == 3)
+          total_gyul = 24;   
+          else if(total_gyul == 2)
+          total_gyul = 26;                                             
+          else if(total_gyul == 1)
+          total_gyul = 28;             
+          else total_gyul = 30; 
+
+        document.cal.gyul_result.value = total_gyul;
+        
+    }
+
+
+
+    function fu_bongsa()
+    {
+       
+        var bong1=document.cal.bongsa1.value;
+        var bong2=document.cal.bongsa2.value
+        var bong3=document.cal.bongsa3.value;
+        bongsa_sum = parseInt(bong1)+parseInt(bong2)+parseInt(bong3);
+
+        if( bongsa_sum >= 30)
+          bongsa_sum = 20;
+        else if(bongsa_sum >= 27)
+          bongsa_sum = 18;    
+        else if(bongsa_sum >= 23)
+          bongsa_sum = 16;
+        else if(bongsa_sum >= 15)
+          bongsa_sum = 14;
+        else if(bongsa_sum >= 11)
+          bongsa_sum = 12;    
+        else bongsa_sum = 10; 
+        document.cal.bongsa_result.value = bongsa_sum;   
+    }
+    function sungjuk()
+    {
+        var sung = document.cal.sung_juk.value;
+        sungjuk_sum = parseInt(sung)
+        if( sungjuk_sum >= 91)
+        sungjuk_sum = 6;
+        else if(sungjuk_sum >= 81)
+        sungjuk_sum = 7;    
+        else if(sungjuk_sum >= 71)
+        sungjuk_sum = 8;
+        else if(sungjuk_sum >= 61)
+        sungjuk_sum = 9;
+        else sungjuk_sum = 10;
+        document.cal.sungjuk_result.value = sungjuk_sum;
+
+    }
+
+</SCRIPT>    
+
+<FORM name = "cal">
+    <table>
+        <tr><b>1. 출결을 입력하세요(미인정 결석지각결과조퇴만 해당) </b></tr>
+        <th>학년</th>
+        <th>무단결석</th>
+        <th>무단지각</th>
+        <th>무단결과</th>
+        <th>무단조퇴</th>
+        <tr><!-- 첫번째 줄 시작 -->
+        <td>1학년</td>
+        <td width=70><input type="text" name="atten1" value=0 size="5"></td>
+        <td width=70><input type="text" name="jigak1"" value=0 size="5"></td>
+        <td width=70><input type="text" name="gyul1" value=0 size="5"></td>
+        <td width=70><input type="text" name="jotoi1" value=0 size="5"></td>
+        </tr><!-- 첫번째 줄 끝 -->
+        <tr><!-- 첫번째 줄 시작 -->
+        <td>2학년</td>
+        <td width=70><input type="text" name="atten2" value=0 size="5"></td>
+        <td width=70><input type="text" name="jigak2"" value=0 size="5"></td>
+        <td width=70><input type="text" name="gyul2" value=0 size="5"></td>
+        <td width=70><input type="text" name="jotoi2" value=0 size="5"></td>
+        </tr><!-- 첫번째 줄 끝 -->
+        <tr><!-- 첫번째 줄 시작 -->
+        <td>3학년</td>
+        <td width=70><input type="text" name="atten3" value=0 size="5"></td>
+        <td width=70><input type="text" name="jigak3" value=0 size="5"></td>
+        <td width=70><input type="text" name="gyul3" value=0 size="5"></td>
+        <td width=70><input type="text" name="jotoi3" value=0 size="5"></td>
+        </tr><!-- 첫번째 줄 끝 -->        
+    </table>
+    
+    <b><u>미인정결과, 미인정지각, 미인정조퇴는 3회당 1일 결석으로 간주</b></u>
+    <br> <br>
+    <table width=350 >
+        <tr>
+        <tr><td colspan=4><b>2. 봉사활동 시간을 입력하세요.</b></td></tr>
+        <tr><td width=100>1학년 봉사활동 시간:</td>
+        <td width=100><input type="text" name="bongsa1" size="5" value=0>시간</td></tr>
+        <tr><td width=100>2학년 봉사활동 시간:</td>
+        <td width=100><input type="text" name="bongsa2" size="5" value=0>시간</td></tr>
+        <tr></tr><td width=100>3학년 봉사활동 시간:</td>
+        <td width=100><input type="text" name="bongsa3" size="5" value=0>시간</td></tr>
+        <td colspan=2><hr></td>
+    </table>
+
+    <br>
+
+    <table width=280>
+        <tr>
+        <tr><td colspan=4><b>3. 교과별 성적을 입력하세요.</b></td></tr>
+
+        <td width=100>석차 백분율:</td>
+
+        <td width=100><input type="text" name="sung_juk" size="5" value=100>%</td>
+        </tr>
+        <td colspan=2><hr></td>
+    </table>
+
+    <br>
+    <table width=400>
+        <tr><tr><td colspan=4><b>4. 자기소개서는 만점으로 환산하여 계산됩니다. </b></td></tr>
+    </table>
+    <tr>
+    <table width=250>
+        <td>결석점수결과</td>
+        <td><input type="text" name="gyul_result" value="점수결과" size="5"></td></tr>
+    </table>
+    <table width=250>
+        <tr></tr><td>봉사점수결과</td>
+        <td><input type="text" name="bongsa_result" value="점수결과" size="5"></td></tr>
+    </table>
+    <table width=250>
+    <tr></tr><td>교과점수결과</td>
+    <td><input type="text" name="sungjuk_result" value="점수결과" size="5"></td></tr>
+    </table>
+    <table width=250>
+        <b><td>전체점수결과</td></b><hr>
+        <td><input type="text" name="total_result" value="점수결과" size="5"></td></tr>
+    </table>        
+    <input type=button value="계산하기" onClick=total_fun()></td>
+
+</FORM>
+
+</body>
+
+</html>
+
